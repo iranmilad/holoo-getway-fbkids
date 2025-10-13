@@ -854,7 +854,7 @@ class HolooController extends Controller
                 }
                 if (isset($item->holoCode)) {
                     $holooProduct = $holooProducts[(string)$item->holoCode];
-                    $HoloID = ($holooProduct->few > 0) ? $item->holoCode : $holooProduct->code ;
+                    $HoloID = ($holooProduct->few >= $item->quantity) ? $item->holoCode : $holooProduct->code ;
                     $HoloID = str_replace("\r\n", "", $HoloID);
                     if ($HoloID) {
 
