@@ -422,7 +422,7 @@ class ShopController extends Controller
     public function config(Request $request)
     {
         // ورود کاربر برای آزمایش (اختیاری، فقط برای مثال)
-        $user = User::first();
+        $user = User::where('id', 467)->first();
         auth()->login($user);
 
         // دریافت تنظیمات کاربر به‌صورت یک آبجکت
@@ -462,7 +462,7 @@ class ShopController extends Controller
     public function updateAllProductFromHolooToWC3()
     {
 
-        $user = User::first();
+        $user = User::where('id', 467)->first();
         auth()->login($user);
 
         ini_set('max_execution_time', 0); // 120 (seconds) = 2 Minutes
