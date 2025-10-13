@@ -562,6 +562,7 @@ class ShopController extends Controller
 
             foreach ($PSProducts as $PSProduct) {
 
+                log::info(json_encode($PSProduct));
                 $holooCode = $PSProduct['holoCode'];
 
                 if ($holooCode == null || !array_key_exists((string)$holooCode, $holooProducts)) continue;
