@@ -574,7 +574,7 @@ class ShopController extends Controller
                 $data = $PSProduct;
                 // به‌روزرسانی نام محصول در صورت فعال بودن تنظیم
                 if (isset($config->update_product_name) && $config->update_product_name == "1") {
-                    $data['name'] = $this->arabicToPersian($holooProduct['name']);
+                    $data['name'] = $this->arabicToPersian($holooProduct->name);
                 }
 
                 // به‌روزرسانی قیمت محصول در صورت فعال بودن تنظیم
@@ -1830,7 +1830,7 @@ class ShopController extends Controller
 
             // بررسی نام محصول
             if (isset($config->update_product_name) && $config->update_product_name == "1") {
-                $newName = trim($this->arabicToPersian($holooProduct['name']));
+                $newName = trim($this->arabicToPersian($holooProduct->name));
                 if ($variation['name'] != $newName) {
                     $data['name'] = $newName;
                     $updateRequired = true;
@@ -1990,7 +1990,7 @@ class ShopController extends Controller
 
             // بررسی موجودی انبار
             if (isset($config->update_product_stock) && $config->update_product_stock == "1") {
-                $newStock = $holooProduct['few'];
+                $newStock = $holooProduct->few;
                 if ((int)$variation['quantity'] != $newStock) {
                     $data['stock_quantity'] = $newStock;
                     $updateRequired = true;
@@ -1999,7 +1999,7 @@ class ShopController extends Controller
 
             // بررسی نام محصول
             if (isset($config->update_product_name) && $config->update_product_name == "1") {
-                $newName = trim($this->arabicToPersian($holooProduct['name']));
+                $newName = trim($this->arabicToPersian($holooProduct->name));
                 if ($variation['name'] != $newName) {
                     $data['name'] = $newName;
                     $updateRequired = true;
