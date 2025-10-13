@@ -562,7 +562,7 @@ class ShopController extends Controller
 
             foreach ($PSProducts as $PSProduct) {
 
-                log::info(json_encode($PSProduct));
+                //log::info(json_encode($PSProduct));
                 $holooCode = $PSProduct['holoCode'];
 
                 if ($holooCode == null || !array_key_exists((string)$holooCode, $holooProducts)) continue;
@@ -2365,7 +2365,7 @@ class ShopController extends Controller
             curl_close($ch);
 
             if ($httpCode >= 400) {
-                throw new \Exception("Failed to fetch products. HTTP Code: {$httpCode}");
+                throw new \Exception("Failed to fetch products for fbkids. HTTP Code: {$httpCode}");
             }
 
             $products = json_decode($response, true);
@@ -2388,8 +2388,8 @@ class ShopController extends Controller
             return $result;
 
         } catch (\Exception $e) {
-            Log::error("Error fetching products: " . $e->getMessage());
-            return response()->json(['error' => 'Error fetching data', 'message' => $e->getMessage()], 500);
+            Log::error("Error fetching products for fbkids: " . $e->getMessage());
+            return response()->json(['error' => 'Error fetching data for fbkids', 'message' => $e->getMessage()], 500);
         }
     }
 
